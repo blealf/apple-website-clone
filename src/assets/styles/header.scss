@@ -91,7 +91,7 @@
     .mobile-menu {
       display: block;
       top: -100vh;
-      transition: background 600ms, top 500ms ease-in-out 100ms;
+      transition: background 600ms, top 500ms cubic-bezier(0,.5,0,-0.14) 100ms;
     }
     &__item:not(.icons) {
       display: none;
