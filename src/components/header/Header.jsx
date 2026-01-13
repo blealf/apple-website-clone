@@ -14,12 +14,15 @@ const Header = () => {
       if (window.innerWidth >= 834) {
         setShowMenu(true)
         mobileRef.current.style.top = '-100vh'
+      } else {
+        setShowMenu(false)
+        mobileRef.current.style.top = '0'
       }
     }
     window.addEventListener('resize', resetMenu)
       
     return () => {
-        window.removeEventListener('resize', resetMenu)
+      window.removeEventListener('resize', resetMenu)
     }
   }, [])
   
@@ -64,24 +67,24 @@ const Header = () => {
         </div>
       </div>
       <ul className="navbar__wrapper">
-         <li className="navbar__item menu icons">
-         { showMenu ? <HiOutlineMenuAlt4 className="menu-icon" onClick={toggleMenu}/>
-           : <VscChromeClose className="menu-icon" onClick={toggleMenu}/>
-         }
-         </li>
-         <li className="navbar__item logo icons">
-          <AiFillApple className="apple-icon"/>
-         </li>
-         { navItems.map((item) => <li key={item.name} className="navbar__item">{item.name}</li>)}
-         <li className="navbar__item">
-          <BiSearch className="search-icon"/>
-         </li>
-         <li 
+        <li className="navbar__item menu icons">
+        { showMenu ? <HiOutlineMenuAlt4 className="menu-icon" onClick={toggleMenu}/>
+          : <VscChromeClose className="menu-icon" onClick={toggleMenu}/>
+        }
+        </li>
+        <li className="navbar__item logo icons">
+        <AiFillApple className="apple-icon"/>
+        </li>
+        { navItems.map((item) => <li key={item.name} className="navbar__item">{item.name}</li>)}
+        <li className="navbar__item">
+        <BiSearch className="search-icon"/>
+        </li>
+        <li 
             className="navbar__item cart icons"
             style={{ opacity: showMenu ? '1' : '0' }}
-         >
-          <BsBag className="cart-icon"/>
-         </li>
+        >
+        <BsBag className="cart-icon"/>
+        </li>
       </ul>
     </nav>
   )
